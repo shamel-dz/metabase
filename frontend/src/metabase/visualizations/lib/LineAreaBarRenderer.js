@@ -904,13 +904,14 @@ export default function lineAreaBar(
         const totalValue = rows.reduce((t, d) => t + d[1], 0);
         const totalRow = ["Total", totalValue];
         rows.push(totalRow);
-        const _origin = {
+        // $FlowFixMe:
+        totalRow._origin = {
           seriesIndex: finalRow._origin.seriesIndex,
           rowIndex: rows.length,
           cols: series.data.cols,
           row: totalRow,
         };
-        totalRow._origin = _origin;
+        // $FlowFixMe:
         totalRow._waterfallTotal = totalValue;
       }
     });
